@@ -197,7 +197,7 @@ if grep -w "$CTID" <<< `$VZLIST_CMD -a -Hoctid` &> /dev/null; then
             tar --use-compress-program=pbzip2 -cvf $WORK_DIR/vzpbackup_${CTID}_${HNAME}_${TIMESTAMP}.tar.bz2 .
             COMPRESS_SUFFIX=bz2
         else
-            tar -cvf - . | pigz -9 -p 4 | ssh bigscoots@int-backup.bigscoots.com "cat > ~/vps/$(hostname | cut -d"." -f1)/vzpbackup_${CTID}_${HNAME}_${TIMESTAMP}.tar.gz"
+            tar -cvf - . | pigz -9 -p 4 | ssh bigscoots@int-backup2.bigscoots.com "cat > ~/vps/$(hostname | cut -d"." -f1)/vzpbackup_${CTID}_${HNAME}_${TIMESTAMP}.tar.gz"
 
         fi
 
